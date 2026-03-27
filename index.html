@@ -19,54 +19,147 @@
   box-sizing: border-box;
   font-family: 'Cairo', sans-serif;
 }
+
 body {
-  background: linear-gradient(135deg, #7B542F, #B6771D);
+  background: linear-gradient(135deg, #2F6B3F, #7FB77E);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* الكارد */
 .container {
-  background: #FFCF71;
-  border: 3px solid #FF9D00;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  background: #FFF6C0;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  
+  /* حواف مميزة (مدبب + منحني) */
+  border-radius: 30px 5px 30px 5px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+  border: 3px solid #F7C85C;
 }
 
 /* الصورة */
 #topImage {
-  border: 2px solid #B6771D;
+  width: 100%;
+  border-radius: 20px 5px 20px 5px;
+  margin-bottom: 15px;
+  border: 2px solid #7FB77E;
 }
 
 /* العنوان */
 h2 {
-  color: #7B542F;
+  color: #2F6B3F;
+  margin-bottom: 10px;
 }
 
 /* التحذير */
 h3 {
-  color: #8b0000;
+  font-size: 13px;
+  color: #b02a37;
+  margin: 15px 0;
 }
 
 /* الانبوت */
 input, select {
-  border: 2px solid #B6771D;
-  background: #fff8e1;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 15px 5px 15px 5px;
+  border: 2px solid #7FB77E;
+  outline: none;
+  background: #fff;
+  transition: 0.3s;
 }
 
 /* فوكس */
 input:focus, select:focus {
-  border-color: #FF9D00;
-  box-shadow: 0 0 10px rgba(255,157,0,0.6);
+  border-color: #F7C85C;
+  box-shadow: 0 0 8px rgba(247,200,92,0.7);
 }
 
 /* الزر */
 button {
-  background: linear-gradient(135deg, #FF9D00, #7B542F);
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  
+  background: linear-gradient(135deg, #F7C85C, #2F6B3F);
   color: #fff;
+  
+  border: none;
+  border-radius: 20px 5px 20px 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* hover */
 button:hover {
   transform: scale(1.07) rotate(-1deg);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* أنيميشن */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* استخدمها كده */
+.container {
+  animation: fadeIn 1.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+body {
+  background: linear-gradient(135deg, #540863, #92487A);
+}
+
+/* الكارد */
+.container {
+  background: #FFD3D5;
+  border: 3px solid #E49BA6;
+}
+
+/* الصورة */
+#topImage {
+  border: 2px solid #92487A;
+}
+
+/* العنوان */
+h2 {
+  color: #540863;
+}
+
+/* التحذير */
+h3 {
+  color: #b02a37; /* زي ما هو */
+}
+
+/* الانبوت */
+input, select {
+  border: 2px solid #92487A;
+}
+
+/* فوكس */
+input:focus, select:focus {
+  border-color: #E49BA6;
+  box-shadow: 0 0 8px rgba(228,155,166,0.7);
+}
+
+/* الزر */
+button {
+  background: linear-gradient(135deg, #E49BA6, #540863);
 }
 </style>
 
