@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل البيانات</title>
+<meta property="og:title" content="تسجيل البيانات">
+<meta property="og:description" content="سجل بياناتك بسهولة الآن">
+<meta property="og:image" content="https://raw.githubusercontent.com/Yousef-qweasd/-/refs/heads/main/WhatsApp%20Image%202026-03-20%20at%201.53.47%20AM.jpeg">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="تسجيل البيانات">
+<meta name="twitter:description" content="سجل بياناتك بسهولة الآن">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Yousef-qweasd/-/refs/heads/main/WhatsApp%20Image%202026-03-20%20at%201.53.47%20AM.jpeg">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+body {
+  background: linear-gradient(135deg, #7B542F, #B6771D);
+}
+
+/* الكارد */
+.container {
+  background: #FFCF71;
+  border: 3px solid #FF9D00;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* الصورة */
+#topImage {
+  border: 2px solid #B6771D;
+}
+
+/* العنوان */
+h2 {
+  color: #7B542F;
+}
+
+/* التحذير */
+h3 {
+  color: #8b0000;
+}
+
+/* الانبوت */
+input, select {
+  border: 2px solid #B6771D;
+  background: #fff8e1;
+}
+
+/* فوكس */
+input:focus, select:focus {
+  border-color: #FF9D00;
+  box-shadow: 0 0 10px rgba(255,157,0,0.6);
+}
+
+/* الزر */
+button {
+  background: linear-gradient(135deg, #FF9D00, #7B542F);
+  color: #fff;
+}
+
+/* hover */
+button:hover {
+  transform: scale(1.07) rotate(-1deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- الصورة -->
+    <img id="topImage" src="https://raw.githubusercontent.com/Yousef-qweasd/-/refs/heads/main/WhatsApp%20Image%202026-03-20%20at%201.53.47%20AM.jpeg">
+
+    <h2>تسجيل البيانات</h2>
+
+    <input type="text" id="fullName" placeholder="الاسم ثلاثي">
+
+    <input type="tel" id="userNumber" placeholder="رقمك (11 رقم)" pattern="[0-9]*">
+    <input type="tel" id="parentNumber" placeholder="رقم ولي الأمر (11 رقم)" pattern="[0-9]*">
+
+    <select id="stage">
+        <option value="">اختار المرحلة</option>
+        <option value="ثانوي">ثانوي</option>
+        <option value="بكالوريا">بكالوريا</option>
+    </select>
+
+    <select id="location">
+        <option value="">اختار المقر</option>
+        <option value="محب">محب أمام مول الشيشيني</option>
+        <option value="المنشبه">المنشيه الجديده اول شارع عشره</option>
+    </select>
+ <h3>⚠️سجل كل البيانات و ارسلها عبر ارسال ثم الوتساب و تأكيد الحجز في المقر خلال أسبوع  ⚠️</h3>
+    <!-- الزرين جنب بعض -->
+    <button onclick="sendWhatsApp()">إرسال</button>
+</div>
+
+<script>
+
+// التحقق من الرقم (11 رقم)
+function isValidNumber(num) {
+    return /^[0-9]{11}$/.test(num);
+}
+
+// التحقق من الاسم ثلاثي
+function isValidName(name) {
+    let parts = name.trim().split(" ");
+    return parts.length === 3 && parts.every(p => p.length > 1);
+}
+
+// إرسال البيانات على واتساب
+function sendWhatsApp() {
+    let name = document.getElementById("fullName").value.trim();
+    let user = document.getElementById("userNumber").value.trim();
+    let parent = document.getElementById("parentNumber").value.trim();
+    let stage = document.getElementById("stage").value;
+    let location = document.getElementById("location").value;
+
+    if (!name || !user || !parent || !stage || !location) {
+        alert("من فضلك املى كل البيانات");
+        return;
+    }
+
+    if (!isValidName(name)) {
+        alert("من فضلك اكتب الاسم ثلاثي صحيح");
+        return;
+    }
+
+    if (!isValidNumber(user) || !isValidNumber(parent)) {
+        alert("الأرقام لازم تكون 11 رقم بالظبط");
+        return;
+    }
+
+    let phoneNumber = "201229315771"; // رقمك
+
+    let message = 
+    "تسجيل جديد:%0A" +
+    "الاسم: " + name + "%0A" +
+    "رقم الطالب: " + user + "%0A" +
+    "رقم ولي الأمر: " + parent + "%0A" +
+    "المرحلة: " + stage + "%0A" +
+    "المقر: " + location;
+
+    let url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
