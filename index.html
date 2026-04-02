@@ -6,11 +6,11 @@
 <title>تسجيل البيانات</title>
 <meta property="og:title" content="تسجيل البيانات">
 <meta property="og:description" content="سجل بياناتك بسهولة الآن">
-<meta property="og:image" content="https://raw.githubusercontent.com/Yousef-qweasd/-mahmode/refs/heads/main/WhatsApp%20Image%202026-03-27%20at%202.46.45%20PM.jpeg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Yousef-qweasd/-mahmode/refs/heads/main/image.png">
 <meta property="og:type" content="website">
 <meta name="twitter:title" content="تسجيل البيانات">
 <meta name="twitter:description" content="سجل بياناتك بسهولة الآن">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Yousef-qweasd/-mahmode/refs/heads/main/WhatsApp%20Image%202026-03-27%20at%202.46.45%20PM.jpeg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Yousef-qweasd/-mahmode/refs/heads/main/image.png">
 
 <style>
 * {
@@ -169,7 +169,7 @@ button {
 <div class="container">
 
     <!-- الصورة -->
-    <img id="topImage" src="https://raw.githubusercontent.com/Yousef-qweasd/-mahmode/refs/heads/main/WhatsApp%20Image%202026-03-27%20at%202.46.45%20PM.jpeg">
+    <img id="topImage" src="https://raw.githubusercontent.com/Yousef-qweasd/-mahmode/refs/heads/main/image.png">
 
     <h2>تسجيل البيانات</h2>
 
@@ -184,12 +184,7 @@ button {
         <option value="بكالوريا">بكالوريا</option>
     </select>
 
-    <select id="location">
-        <option value="">اختار المقر</option>
-        <option value="محب">محب أمام مول الشيشيني</option>
-        <option value="المنشبه">المنشيه الجديده اول شارع عشره</option>
-    </select>
- <h3>⚠️سجل كل البيانات و ارسلها عبر ارسال ثم الوتساب و تأكيد الحجز في المقر خلال أسبوع  ⚠️</h3>
+ <h3>⚠️سجل كل البيانات و ارسلها عبر ارسال ثم الوتساب و تأكيد الحجز في المقر ( المنشيه ) خلال أسبوع  ⚠️</h3>
     <!-- الزرين جنب بعض -->
     <button onclick="sendWhatsApp()">إرسال</button>
 </div>
@@ -213,8 +208,6 @@ function sendWhatsApp() {
     let user = document.getElementById("userNumber").value.trim();
     let parent = document.getElementById("parentNumber").value.trim();
     let stage = document.getElementById("stage").value;
-    let location = document.getElementById("location").value;
-
     if (!name || !user || !parent || !stage || !location) {
         alert("من فضلك املى كل البيانات");
         return;
@@ -238,7 +231,6 @@ function sendWhatsApp() {
     "رقم الطالب: " + user + "%0A" +
     "رقم ولي الأمر: " + parent + "%0A" +
     "المرحلة: " + stage + "%0A" +
-    "المقر: " + location;
 
     let url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, "_blank");
